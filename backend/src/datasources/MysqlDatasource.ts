@@ -1,11 +1,12 @@
 import {registerProvider} from "@tsed/di";
 import {DataSource} from "typeorm";
 import {Logger} from "@tsed/logger";
+import { LoginModel } from "src/models/LoginModel";
 
 export const MYSQL_DATA_SOURCE = Symbol.for("MysqlDataSource");
 export const MysqlDataSource = new DataSource({
   type: "mysql",
-  entities: [],
+  entities: [LoginModel],
   host:"54.205.81.137",
   port: 3306,
   username: "sreerag",
