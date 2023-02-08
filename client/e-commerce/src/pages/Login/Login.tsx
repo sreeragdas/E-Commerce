@@ -2,11 +2,13 @@ import { useState } from "react";
 import { signInWithGoogle } from "../../component/firebase";
 import { useNavigate } from 'react-router-dom';
 import "./styles.scss";
+
 export const Login: React.FC = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const handleClick = () => navigate('/createUser');
+
   return (
     <div className="login">
       <div className="user-input">
@@ -39,3 +41,7 @@ export const Login: React.FC = () => {
     </div>
   );
 };
+function useEffect(arg0: () => void, arg1: never[]) {
+  throw new Error("Function not implemented.");
+}
+
