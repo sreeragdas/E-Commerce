@@ -4,7 +4,10 @@ export const CreateUser: React.FC = () => {
             <div>
                 <div>Name</div>
                 <input  type="text" />
-                <div>Username</div>
+                <div>Phone Number</div>
+                <input  type="text" />
+                
+                <div>Email-id</div>
                 <input  type="text" />
                 <div>Password</div>
                 <input  type="text" />

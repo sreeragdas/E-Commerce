@@ -4,3 +4,4 @@
 
 export * from "./HelloWorldController";
 export * from "./LoginController";
+export * from "./OAuthController";

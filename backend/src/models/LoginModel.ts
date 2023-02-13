@@ -1,4 +1,5 @@
-import {Property} from "@tsed/schema";
+import {Property, string} from "@tsed/schema";
+import { strictEqual } from "assert";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('Login')
@@ -12,4 +13,10 @@ export class LoginModel {
 
   @Column()
   password:string
+
+  @Column()
+  phoneNumber:string
+
+  @Column({nullable:true , default:null})
+  eMail:string
 }

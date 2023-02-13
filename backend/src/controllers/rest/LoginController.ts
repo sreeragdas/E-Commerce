@@ -3,12 +3,8 @@ import { BodyParams } from "@tsed/platform-params";
 import {Get, Post} from "@tsed/schema";
 import { LoginModel } from "src/models/LoginModel";
 import { LoginService } from "src/services/LoginService";
+import {AdminUserDTO} from '../../../dtos/input/AdminUserDTO'
 
-
-interface login{
-  username:string,
-  password:string
-}
 
 @Controller("/login")
 
@@ -20,8 +16,8 @@ export class LoginController {
   }
 
   @Post("/")
-  postData(@BodyParams() body: login) : Promise <LoginModel> {
-    return this.loginService.save(body)
+  postData(@BodyParams(AdminUserDTO) body: AdminUserDTO) : Promise <LoginModel> {
+    return this.loginService.saveLogin(body)
 
   }
 }
