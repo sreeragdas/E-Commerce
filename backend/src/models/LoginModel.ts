@@ -11,10 +11,10 @@ export class LoginModel {
   @Column()
   name:string;
 
-  @Column()
+  @Column({nullable:true , default:null})
   password:string
 
-  @Column()
+  @Column({nullable:true , default:null})
   phoneNumber:string
 
   @Column({nullable:true , default:null})

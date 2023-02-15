@@ -4,3 +4,8 @@ export interface IAdminUser {
     password:string;
     phoneNumber:string;
 }
+
+export interface IAuthLogin{
+    name:string , 
+    email:string
+}

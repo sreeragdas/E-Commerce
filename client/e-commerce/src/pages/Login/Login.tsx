@@ -1,14 +1,22 @@
 import { useState } from "react";
-import { signInWithGoogle } from "../../component/firebase";
+import { auth , provider } from "../../component/firebase";
 import { useNavigate } from 'react-router-dom';
 import "./styles.scss";
-
-export const Login: React.FC = () => {
+import { observer } from 'mobx-react-lite';
+import {signInWithPopup} from "firebase/auth"
+import { useStore } from "../../stores";
+export const Login: React.FC = observer(() => {
+  const {authStore} = useStore()
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const handleClick = () => navigate('/createUser');
 
+   const signInWithGoogle = () =>{
+    signInWithPopup(auth , provider).then((result)=>{console.log(result.user.email ,'email')}).catch((error)=>{console.log(error)})
+  
+    
+}
   return (
     <div className="login">
       <div className="user-input">
@@ -40,8 +48,6 @@ export const Login: React.FC = () => {
       </div>
     </div>
   );
-};
-function useEffect(arg0: () => void, arg1: never[]) {
-  throw new Error("Function not implemented.");
-}
+});
+
 
