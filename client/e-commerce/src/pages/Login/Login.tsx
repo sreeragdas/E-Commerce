@@ -5,6 +5,7 @@ import "./styles.scss";
 import { observer } from 'mobx-react-lite';
 import {signInWithPopup} from "firebase/auth"
 import { useStore } from "../../stores";
+import { IAuthLogin } from "../../interface/IUser";
 export const Login: React.FC = observer(() => {
   const {authStore} = useStore()
   const navigate = useNavigate();
@@ -13,7 +14,12 @@ export const Login: React.FC = observer(() => {
   const handleClick = () => navigate('/createUser');
 
    const signInWithGoogle = () =>{
-    signInWithPopup(auth , provider).then((result)=>{console.log(result.user.email ,'email')}).catch((error)=>{console.log(error)})
+    signInWithPopup(auth , provider).then((result)=>{
+  
+    authStore.postAuthUser(result.user.displayName as unknown as IAuthLogin , result.user.email as unknown as IAuthLogin )
+  
+
+  }).catch((error)=>{console.log(error)})
   
     
 }
