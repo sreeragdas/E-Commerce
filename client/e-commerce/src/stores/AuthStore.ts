@@ -4,7 +4,7 @@ import { IAdminUser, IAuthLogin } from "../interface/IUser";
 
 export class AuthStore {
         public user :IAdminUser | null;
-        public authuser:IAuthLogin | null;
+        public authuser:IAuthLogin | null ;
     
     public constructor() {
         this.user=null
@@ -12,12 +12,18 @@ export class AuthStore {
         makeAutoObservable(this)
     }
 
-    private setAuthUser (value :IAuthLogin | null){
+    private setAuthUser (value :IAuthLogin ){
         this.authuser=value
 
     }
 
-    public async postAuthUser(value:IAuthLogin){
+    private setAdminUser(value:IAdminUser){
+        this.user=value
+    }
+
+    public async postAuthUser(name:IAuthLogin , eMail:IAuthLogin){
+        const value={name , eMail}
+        console.log(value ,'value data from store')
         try{
             await axios.post(`http://localhost:8083/rest/o-auth` , value)
             return true;
@@ -26,5 +32,14 @@ export class AuthStore {
         }
     
 
+    }
+
+    public async postAdminUser(value : IAdminUser){
+        console.log(value , 'val from store')
+        try{
+            await axios.post(`http://localhost:8083/rest/login` , value)
+        }catch(e){
+            console.log(e)
+        }
     }
 }

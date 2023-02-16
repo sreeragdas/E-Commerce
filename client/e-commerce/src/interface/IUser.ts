@@ -1,11 +1,11 @@
 export interface IAdminUser {
     name: string;
-    email: string;
+    eMail: string;
     password:string;
     phoneNumber:string;
 }
 
 export interface IAuthLogin{
-    name:string , 
-    email:string
+    name:string | null , 
+    email:string | null
 }

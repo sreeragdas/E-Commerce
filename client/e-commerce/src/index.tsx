@@ -5,9 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StoreProvider } from './stores';
 
+
 createRoot(document.getElementById('root') || document.body).render(
   <StoreProvider>
-      <App />
+       <App /> 
+   
   </StoreProvider>
 );
 
