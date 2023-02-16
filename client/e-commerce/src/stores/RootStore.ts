@@ -1,12 +1,12 @@
-import { makeAutoObservable } from "mobx";
+
 import { AuthStore } from "./AuthStore";
 
-export class RootStore {
+export class Rootstore {
     public authStore : AuthStore
 
     public constructor(){
         this.authStore = new AuthStore()
-        makeAutoObservable(this)
+
     }
 
 }

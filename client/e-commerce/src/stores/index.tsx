@@ -1,17 +1,17 @@
-import { createContext, ReactNode, useContext } from 'react';
-import { RootStore } from './RootStore';
 
 
-const Context = createContext<RootStore>({} as RootStore);
-const Provider = Context.Provider;
+import React from "react";
+import { createContext, ReactNode, useContext } from "react";
+import { Rootstore } from "./RootStore";
 
+const Context = createContext<Rootstore>({} as Rootstore);
+const Provider=Context.Provider
 interface IProps {
-    children: ReactNode;
+  children: ReactNode;
 }
-
 export const StoreProvider: React.FC<IProps> = ({ children }) => {
-    const store = new RootStore();
-    return <Provider value={store}>{children}</Provider>;
+  const store = new Rootstore();
+  return <Provider value={store}>{children}</Provider>
 };
 
-export const useStore = () => useContext(Context);
+export const useStore=()=>useContext(Context)
